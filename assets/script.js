@@ -101,6 +101,27 @@ document.addEventListener('DOMContentLoaded', function () {
     setActive();
   }
 
+  /* 3D floating panel tilt (hero) — mouse-driven, safe fallback to CSS bob animation */
+  var panel = document.querySelector('.float-panel');
+  var stage = document.querySelector('.float-stage');
+  if (panel && stage && window.matchMedia('(hover: hover)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var raf = null;
+    stage.addEventListener('mousemove', function (e) {
+      var rect = stage.getBoundingClientRect();
+      var px = (e.clientX - rect.left) / rect.width - 0.5;
+      var py = (e.clientY - rect.top) / rect.height - 0.5;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(function () {
+        panel.style.animation = 'none';
+        panel.style.transform = 'rotateX(' + (6 - py * 16) + 'deg) rotateY(' + (-8 + px * 16) + 'deg)';
+      });
+    });
+    stage.addEventListener('mouseleave', function () {
+      panel.style.transform = '';
+      panel.style.animation = '';
+    });
+  }
+
   /* FAQ accordion */
   document.querySelectorAll('.faq-item').forEach(function (item) {
     var q = item.querySelector('.faq-q');
