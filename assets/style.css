@@ -75,13 +75,22 @@ header.site{
   border-bottom:1px solid var(--border);
 }
 /* Blur/background lives on a pseudo-element, not on header.site itself —
-   putting backdrop-filter directly on header.site would make it a containing
-   block for its fixed-position mobile nav panel, breaking that panel's
-   viewport-relative positioning. */
+   putting transform/backdrop-filter directly on header.site would make it a
+   containing block for its fixed-position mobile nav panel, breaking that
+   panel's viewport-relative positioning (this exact regression happened once
+   already — keep the compositing hint scoped to ::before, never the header). */
 header.site::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:rgba(247,246,242,.86);
+  -webkit-backdrop-filter:blur(14px);
   backdrop-filter:blur(14px);
+  /* Forces its own compositing layer — without this, iOS Safari can visibly
+     tear/ghost old content behind a sticky + backdrop-filter element while
+     scrolling (a well-known WebKit rendering bug on this exact combo). Safe
+     here because ::before is not an ancestor of .nav-links. */
+  transform:translateZ(0);
+  -webkit-transform:translateZ(0);
+  will-change:transform;
 }
 .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:var(--maxw);margin:0 auto}
 .brand{display:flex;align-items:center;gap:9px;font-family:var(--ff-body);font-weight:800;font-size:1.05rem;color:var(--text);letter-spacing:-.01em}
@@ -210,7 +219,8 @@ header.site::before{
 .card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
 .card:hover .thumb img{transform:scale(1.06)}
 .card .tag{
-  position:absolute;top:12px;left:12px;background:rgba(10,22,40,.78);backdrop-filter:blur(6px);
+  position:absolute;top:12px;left:12px;background:rgba(10,22,40,.78);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   color:var(--ink-cream);font-size:.72rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
   padding:5px 10px;border-radius:999px;
 }
