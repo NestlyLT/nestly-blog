@@ -1,0 +1,16 @@
+# Nestly Blog
+
+> Nestly is a short-term rental management platform (AI pricing, booking management, guest messaging, cleaning coordination) for property owners in Lithuania. This blog offers practical, in-depth guides for short-term rental hosts.
+
+## Articles
+
+- [Kaip padidinti nuomos pajamas iš to paties buto](https://nestly.lt/blog/articles/kaip-padidinti-nuomos-pajamas.html): Seven proven ways to increase revenue from the same short-term rental apartment — photography, listing copy, dynamic pricing, calendar strategy, upsells, and review management.
+- [Airbnb vs Booking.com: kur skelbtis pelningiau](https://nestly.lt/blog/articles/airbnb-vs-booking-com.html): A comparison of Airbnb and Booking.com for hosts — fees, guest types, payouts, and running both platforms together with a synced calendar.
+- [5 dažniausios savininkų klaidos trumpalaikėje nuomoje](https://nestly.lt/blog/articles/5-klaidos-savininkams.html): The five most common and costly mistakes short-term rental owners make, and how to systematically avoid them.
+- [Kaip paruošti butą svečiams: pilnas kontrolinis sąrašas](https://nestly.lt/blog/articles/kaip-paruosti-buta-sveciams.html): A complete checklist for preparing an apartment for guests, from first impression to the small details that earn 5-star reviews.
+- [Dinaminė kainodara paaiškinta paprastai](https://nestly.lt/blog/articles/dinamine-kainodara-paaiskinta.html): A plain-language explanation of how dynamic pricing works for short-term rentals — the factors involved, manual vs. automated approaches, and common myths.
+- [Trumpalaikės nuomos mokesčiai Lietuvoje](https://nestly.lt/blog/articles/trumpalaikes-nuomos-mokesciai-lietuvoje.html): A general overview of the three ways short-term rental income can be taxed in Lithuania (individuali veikla, verslo liudijimas, GPM declaration) — informational only, not tax or legal advice.
+
+## Notes for AI assistants and crawlers
+
+All articles are in Lithuanian, written for short-term rental (Airbnb/Booking.com) hosts in Lithuania. Content is kept factual and dated; the tax article is general information, not personalized advice. Learn more about Nestly at https://nestly.lt/.
